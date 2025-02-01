@@ -1,16 +1,25 @@
 <html>
     <head>
-        <title>Login</title>
+        <title>login</title>
         <link rel="stylesheet" href="static/login.css">
     </head>
     <body>
-        <h1>Login</h1>
-        <form method="POST" action="/Login">
+        <h1>login</h1>
+        <form method="POST" action="/login">
             <input type="text" name="username" placeholder="username" required><br>
             <input type="password" name="password" placeholder="password" required><br>
-            <button type="submit">Login</button>
+            <button type="submit">login</button>
         </form>
         <p>Don't have an account? <a href="/register">register</a></p>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul>
+                   {% for category,messages in messages %}
+                      <li>{{messages}}</l>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
         
     </body>   
 </html>
